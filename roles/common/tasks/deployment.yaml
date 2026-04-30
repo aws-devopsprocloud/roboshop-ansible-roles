@@ -1,4 +1,4 @@
-- name: stop the {[component]}
+- name: stop the {{component}}
   ansible.builtin.service: 
     name: "{{component}}"
     state: stopped 
