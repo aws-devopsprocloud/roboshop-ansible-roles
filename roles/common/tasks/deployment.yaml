@@ -9,6 +9,12 @@
     path: /app 
     state: absent 
   tags: deployment 
+
+- name: Creating /app directory
+  ansible.builtin.file:
+    path: /app 
+    state: directory 
+  tags: deployment 
   
 - name: "Downloading {{component}}.zip"
   ansible.builtin.get_url:
