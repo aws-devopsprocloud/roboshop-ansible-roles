@@ -16,6 +16,6 @@
   ansible.builtin.debug:
     msg: "catalogue Count is : {{catalogue_count}}"
 
-# - name: loading catalogue data into MongoDB 
-#   ansible.builtin.shell: mongosh --host mongodb.devopsprocloud.in </app/db/master-data.js
-#   when: catalogue_count.stdout == "-1"
+- name: loading catalogue data into MongoDB 
+  ansible.builtin.shell: mongosh --host mongodb.devopsprocloud.in </app/db/master-data.js
+  when: catalogue_count.stdout == "-1"
