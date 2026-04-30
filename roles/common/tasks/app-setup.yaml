@@ -2,6 +2,11 @@
   ansible.builtin.user:
     name: roboshop 
 
+- name: Recursively remove the /app directory 
+  ansible.builtin.file:
+    path: /app
+    state: absent 
+
 - name: Creating App Directory 
   ansible.builtin.file:
     path: /app 
