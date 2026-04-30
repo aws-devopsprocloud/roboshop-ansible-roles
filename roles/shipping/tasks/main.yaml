@@ -9,6 +9,7 @@
     tasks_from: java-setup.yaml 
 
 - name: mysql setup 
+  vars_files: variables.yaml
   ansible.builtin.import_role:
     name: common 
     tasks_from: mysql-setup.yaml 
