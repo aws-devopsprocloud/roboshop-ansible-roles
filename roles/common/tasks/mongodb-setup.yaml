@@ -9,7 +9,7 @@
     state: present 
 
 - name: "Get the {{component}} Count"
-  ansible.builtin.command: mongosh --host mongodb.devopsprocloud.in --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
+  ansible.builtin.command: mongosh --host {{MONGODB_HOST}} --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
   register: "catalogue_count"
 
 - name: "Read {{component}} Count"
@@ -17,5 +17,5 @@
     msg: "catalogue Count is : {{catalogue_count}}"
 
 - name: loading catalogue data into MongoDB 
-  ansible.builtin.shell: mongosh --host mongodb.devopsprocloud.in </app/db/master-data.js
+  ansible.builtin.shell: mongosh --host {{MONGODB_HOST}} </app/db/master-data.js
   when: catalogue_count.stdout == "-1"
