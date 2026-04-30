@@ -18,4 +18,4 @@
 
 - name: loading catalogue data into MongoDB 
   ansible.builtin.shell: mongosh --host {{MONGODB_HOST}} </app/db/master-data.js
-  when: catalogue_count.stdout | int < 0
+  when: catalogue_count.stdout != "0"
