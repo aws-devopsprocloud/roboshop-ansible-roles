@@ -36,9 +36,6 @@
   ansible.builtin.template:
     src: nginx.conf.j2
     dest: /etc/nginx/nginx.conf
+  notify: 
+  - restart nginx # If there is any chnang ein the configuration file then we are asking the handlers to restart nginx service
 
-- name: Starting and Enabling the nginx 
-  ansible.builtin.service:
-    name: nginx 
-    enabled: yes
-    state: restarted
